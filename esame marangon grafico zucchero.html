@@ -1,0 +1,55 @@
+<html>
+  <head>
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart', 'bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Food product', 'Freshwater withdrawals per kilogram', 'Scarcity-weighted water use per kilogram'],
+          ['Cane Sugar', 620.1, 16438.6],
+          ['Beet Sugar', 217.7, 9493.3]
+        ]);
+
+
+      var classicOptions = {
+          width: 900,
+          
+          series: {
+            0: {targetAxisIndex: 0},
+            1: {targetAxisIndex: 1}
+          },
+          title: 'Water consumption by type of sugar',
+            subtitle: 'all data in liters per kilogram',
+          vAxes: {
+            // Adds titles to each axis.
+            0: {title: 'Freshwater withdrawals'},
+            1: {title: 'Scarcity-weighted water'},
+            viewWindow: {
+              min: 0,
+              max: 4
+            },
+            arrow: {
+              angle: 120,
+              length: 10,
+              width: 3,
+              color: 'gray'
+            },
+          }
+        }
+        
+      var classicChart = new google.visualization.ColumnChart(drowChart);
+          classicChart.draw(data, classicOptions);
+      }
+    </script>
+  </head>
+  <body>
+   
+    <center>
+    <div id="drowChart" style="width: 800px; height: 500px;" ></div>
+  </center>
+
+  </body>
+</html>
